@@ -19,13 +19,13 @@ export const TodoCreate = (props) => {
 
   return (
     <form
-      className="bg-white rounded-md overflow-hidden py-4 flex gap-4 items-center px-4 mt-8 dark:bg-gray-800"
+      className="bg-white rounded-md overflow-hidden py-4 flex gap-4 items-center px-4 mt-8 dark:bg-gray-800 duration-1000"
       onSubmit={handleSubmitAddTodo}
     >
       <span className="rounded-full border-2 w-3 inline-block h-3"></span>
       <input
         type="text"
-        className="w-full text-gray-400 outline-none dark:bg-gray-800"
+        className="w-full text-gray-400 outline-none dark:bg-gray-800 duration-1000"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       ></input>

@@ -3,35 +3,37 @@ import { TodoCreate } from "./components/TodoCreate/TodoCreate";
 import { TodoComputed } from "./components/TodoComputed/TodoComputed";
 import { TodoFilter } from "./components/TodoFilter/TodoFilter";
 import { TodoList } from "./components/TodoList/TodoList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const initialStateTodo = [
-  {
-    id: 1,
-    title: "Go to the gym",
-    completed: true,
-  },
-  {
-    id: 2,
-    title: "Complete online Javascript bluuweb curse",
-    completed: false,
-  },
-  {
-    id: 3,
-    title: "10 minutes meditation",
-    completed: false,
-  },
-  {
-    id: 4,
-    title: "Pick up groceries",
-    completed: false,
-  },
-  {
-    id: 5,
-    title: "Complete todo app on Frontend Mentor",
-    completed: false,
-  },
-];
+// const initialStateTodo = [
+//   {
+//     id: 1,
+//     title: "Go to the gym",
+//     completed: true,
+//   },
+//   {
+//     id: 2,
+//     title: "Complete online Javascript bluuweb curse",
+//     completed: false,
+//   },
+//   {
+//     id: 3,
+//     title: "10 minutes meditation",
+//     completed: false,
+//   },
+//   {
+//     id: 4,
+//     title: "Pick up groceries",
+//     completed: false,
+//   },
+//   {
+//     id: 5,
+//     title: "Complete todo app on Frontend Mentor",
+//     completed: false,
+//   },
+// ];
+
+const initialStateTodo = JSON.parse(localStorage.getItem("todos")) || [];
 
 export const App = () => {
   const [todos, setTodos] = useState(initialStateTodo);
@@ -73,12 +75,27 @@ export const App = () => {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const changeFilter = (filter) => setFilter(filter);
 
   const computedItemsLeft = todos.filter((x) => !x.completed).length;
 
   return (
-    <div className="bg-no-repeat bg-gray-300 min-h-screen bg-[url(./assets/images/bg-mobile-light.jpg)] bg-contain dark:bg-gray-900 dark:bg-[url(./assets/images/bg-mobile-dark.jpg)]">
+    <div
+      className="bg-no-repeat bg-gray-300 min-h-screen 
+                    bg-[url(./assets/images/bg-mobile-light.jpg)] 
+                    bg-contain 
+                    dark:bg-gray-900 
+                    dark:bg-[url(./assets/images/bg-mobile-dark.jpg)] 
+                    duration-1000 
+                    
+                    md:bg-[url(./assets/images/bg-mobile-light.jpg)] 
+                    md:dark:md:bg-[url(./assets/images/bg-mobile-dark.jpg)]
+                    transition-all"
+    >
       <Header></Header>
       <main className="container mx-auto px-4 mt-8">
         <TodoCreate createTodo={createTodo}></TodoCreate>

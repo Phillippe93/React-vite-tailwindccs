@@ -3,7 +3,7 @@ export const TodoFilter = (props) => {
   const { changeFilter, filter } = props;
   return (
     <section className="container mx-auto mt-8">
-      <div className="bg-white p-4 rounded-md flex justify-center gap-4 dark:bg-gray-800">
+      <div className="bg-white p-4 rounded-md flex justify-center gap-4 dark:bg-gray-800 duration-1000">
         <button
           className={
             filter === "all"

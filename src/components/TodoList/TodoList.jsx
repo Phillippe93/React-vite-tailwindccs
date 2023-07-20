@@ -4,7 +4,7 @@ import { TodoItem } from "../TodoItem/TodoItem";
 export const TodoList = (props) => {
   const { todos, removeTodo, updateTodo } = props;
   return (
-    <div className="bg-white rounded-t-md mt-8">
+    <div className="bg-white rounded-t-md mt-8 overflow-hidden">
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
