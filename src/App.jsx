@@ -78,11 +78,11 @@ export const App = () => {
   const computedItemsLeft = todos.filter((x) => !x.completed).length;
 
   return (
-    <div className="bg-no-repeat bg-gray-300 min-h-screen bg-[url(./assets/images/bg-mobile-light.jpg)] bg-contain">
+    <div className="bg-no-repeat bg-gray-300 min-h-screen bg-[url(./assets/images/bg-mobile-light.jpg)] bg-contain dark:bg-gray-900 dark:bg-[url(./assets/images/bg-mobile-dark.jpg)]">
       <Header></Header>
       <main className="container mx-auto px-4 mt-8">
         <TodoCreate createTodo={createTodo}></TodoCreate>
-        {/* TodoList (TodoItem) TodoUpdate TodoDelete */}
+
         <TodoList
           todos={filterTodo()}
           removeTodo={removeTodo}
@@ -96,7 +96,7 @@ export const App = () => {
 
         <TodoFilter changeFilter={changeFilter} filter={filter}></TodoFilter>
       </main>
-      <footer className="text-center mt-8">
+      <footer className="text-center mt-8 dark:text-gray-400">
         Drag and drop to reorder list
       </footer>
     </div>
